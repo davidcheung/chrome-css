@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Custom CSS</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+      }
+      #status {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 400px;
+      }
+      #app::before{
+        content: '#app';
+        position: absolute;
+        margin-top: -10px;
+        color: #aaa;
+      }
+      #app {
+        width: 350px;
+        border: 1px dashed aaa;
+        font-size: 8px
+      }
+      .collaspe {
+        display: none;
+      }
+    </style>
+
+    <script src="popup.js"></script>
+  </head>
+  <body>
+     <div id="app" class="collaspe"></div>
+     <select name="" id="domains"></select>
+     <br>
+     <textarea name="" id="css" cols="30" rows="10"></textarea>
+     <br>
+     <button id="save">Save</button>
+     <button id="submit">Inject</button>
+  </body>
+</html>
+
