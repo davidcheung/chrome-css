@@ -13,8 +13,9 @@ function getDomain(url) {
 }
 
 function appendCss(tabId, css) {
-chrome.tabs.executeScript(tabId, 
-  {code: 'var x =document.createElement("STYLE");x.innerText="'+css+'"; document.getElementsByTagName("head")[0].appendChild(x) '},
-  ()=>{ console.log('Applied styling')}
-)
+  css = css.replace(/\n/g,' ');
+  chrome.tabs.executeScript(tabId, 
+    {code: 'var x =document.createElement("STYLE");x.innerText="'+css+'"; document.getElementsByTagName("head")[0].appendChild(x) '},
+    ()=>{ console.log('Applied styling')}
+  )
 }
